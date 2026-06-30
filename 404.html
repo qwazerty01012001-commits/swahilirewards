@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SwahiliRewards</title>
+<script>
+  // GitHub Pages SPA redirect — https://github.com/rafgraph/spa-github-pages
+  // GitHub Pages serves this file for any URL that doesn't match a real file
+  // (e.g. /join, /signup, /dashboard). It encodes the real path + query into
+  // a single query string on "/", which index.html then decodes back via
+  // history.replaceState. This makes links like
+  // https://swahilirewards.com/join?ref=SR939CA3 work on static hosting.
+  var pathSegmentsToKeep = 0; // 0 because this is a custom domain root, not a /reponame/ project page
+  var l = window.location;
+  l.replace(
+    l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+    l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+    l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+    (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+    l.hash
+  );
+</script>
+</head>
+<body>
+  Redirecting…
+</body>
+</html>
